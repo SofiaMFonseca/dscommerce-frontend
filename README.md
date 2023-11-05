@@ -1,3 +1,5 @@
+# Design Figma for the project [here](https://www.figma.com/file/ZrGNVNG0kZL6txDv4G8P6s/DSCommerce)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
