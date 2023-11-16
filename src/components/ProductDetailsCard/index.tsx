@@ -22,8 +22,8 @@ function ProductDetailsCard() {
                     sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
                 <div className="dsc-category-container">
-                    <ProductCategory />
-                    <ProductCategory />
+                    <ProductCategory name='Electrônicos' />
+                    <ProductCategory name='Computadores' />
                 </div>
             </div>
         </div>
