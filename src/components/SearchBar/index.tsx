@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 
 type Props = {
@@ -9,7 +9,7 @@ function SearchBar({onSearch} : Props) {
 
     const [text, setText] = useState("");
 
-    function handleChange(event: any) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         setText(event.target.value);
     }
 
@@ -18,7 +18,7 @@ function SearchBar({onSearch} : Props) {
         onSearch(text);
     }
 
-    function handleSubmit(event: any) {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         onSearch(text);
     }
