@@ -2,6 +2,7 @@
 import './styles.css';
 import { useContext, useState } from 'react';
 import * as authService from '../../../services/auth-service';
+import * as forms from '../../../utils/forms';
 import { useNavigate } from 'react-router-dom';
 import { ContextToken } from '../../../utils/context-token';
 import FormInput from '../../../components/FormInput';
@@ -47,9 +48,7 @@ function Login() {
     }
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-        const value = event.target.value;
-        const name = event.target.name;
-        setFormData({ ...formData, [name]: { ...formData[name], value: value } });
+        setFormData(forms.update(formData, event.target.name, event.target.value));
     }
 
     return (
