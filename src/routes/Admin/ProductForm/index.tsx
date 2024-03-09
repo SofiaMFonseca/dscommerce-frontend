@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './styles.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import FormInput from '../../../components/FormInput';
 import * as forms from '../../../utils/forms';
@@ -15,6 +15,8 @@ function ProductForm() {
 
     const params = useParams();
 
+    const navigate = useNavigate();
+
     const isEditing = params.productId !== 'create';
 
     const [categories, setCategories] = useState<CategoryDTO[]>([]);
@@ -26,7 +28,7 @@ function ProductForm() {
             name: "name",
             type: "text",
             placeholder: "Nome",
-            validation: function(value: string) {
+            validation: function (value: string) {
                 return /^.{3,80}$/.test(value);
             },
             message: "Favor informar um nome de 3 a 80 caracteres"
@@ -37,7 +39,7 @@ function ProductForm() {
             name: "price",
             type: "number",
             placeholder: "Preço",
-            validation: function(value: any) {
+            validation: function (value: any) {
                 return Number(value) > 0;
             },
             message: "Favor informar um valor positivo"
@@ -55,7 +57,7 @@ function ProductForm() {
             name: "description",
             type: "text",
             placeholder: "Descrição",
-            validation: function(value: string) {
+            validation: function (value: string) {
                 return /^.{10,}$/.test(value);
             },
             message: "A descrição deve ter pelo menos 10 caracteres"
@@ -65,7 +67,7 @@ function ProductForm() {
             id: "categories",
             name: "categories",
             placeholder: "Categorias",
-            validation: function(value: CategoryDTO[]) {
+            validation: function (value: CategoryDTO[]) {
                 return value.length > 0;
             },
             message: "Escolha ao menos uma categoria"
@@ -105,7 +107,19 @@ function ProductForm() {
             return;
         }
 
-        console.log(forms.toValues(formData));
+        const requestBody = forms.toValues(formData);
+        if (isEditing) {
+            requestBody.id = params.productId;
+        }
+
+        const request = isEditing
+            ? productService.updateRequest(requestBody)
+            : productService.insertRequest(requestBody);
+
+        request
+            .then(() => {
+                navigate("/admin/products");
+            });
     }
 
     return (
@@ -145,7 +159,7 @@ function ProductForm() {
                                 <FormSelect
                                     {...formData.categories}
                                     className="dsc-form-control dsc-form-select-container"
-                                    styles={selectStyles} 
+                                    styles={selectStyles}
                                     options={categories}
                                     onChange={(obj: any) => {
                                         const newFormData = forms.updateAndValidate(formData, "categories", obj);
