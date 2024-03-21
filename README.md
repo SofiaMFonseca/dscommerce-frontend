@@ -1,5 +1,18 @@
 # Design Figma for the project [here](https://www.figma.com/file/ZrGNVNG0kZL6txDv4G8P6s/DSCommerce)
 
+### The skills evaluated include creation of web applications with ReactJS, components, props, routes, hooks, requests, local storage, events, global state, access control, forms, among others.
+
+## Correction criteria for this project:
+
+- Customer header: link to home, login/logout link, cart item count 
+- Catalog page: paginated listing, filter by name, next page button 
+- Product details page 
+- Cart page: listing items, changing quantities, subtotals and totals 
+- Login page: email validation, error message in case of invalid credentials 
+- Admin header:  Home/Products navigation menu 
+- Product listing page: paginated listing, filter by name, next page button 
+- Product form page: field validations, cancel button, save button working
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
