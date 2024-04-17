@@ -15,6 +15,8 @@
 
 ## Conceptual model
 
+The project consists of an e-commerce system where it is possible to carry out functionalities such as maintaining a product register, searching for products for catalog and shopping cart purposes, registering and retrieving orders, queries, filters, data pagination, login, access control, among others.
+
 ![Figma](https://github.com/SofiaMFonseca/assets/blob/main/dscommerce-frontend/conceptual-model-DSCommerce.png)
 
 # React + TypeScript + Vite
