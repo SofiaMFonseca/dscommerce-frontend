@@ -13,6 +13,10 @@
 - Product listing page: paginated listing, filter by name, next page button 
 - Product form page: field validations, cancel button, save button working
 
+## Conceptual model
+
+![Figma](https://github.com/SofiaMFonseca/assets/blob/main/dscommerce-frontend/conceptual-model-DSCommerce.png)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
